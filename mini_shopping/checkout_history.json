@@ -1,0 +1,35 @@
+[
+    {
+        "timestamp": "2025-08-15T16:13:46.084090",
+        "products": [
+            {
+                "id": 1,
+                "name": "Pasta",
+                "price": 7.46,
+                "quantity": 2,
+                "total": 14.92
+            },
+            {
+                "id": 1,
+                "name": "Pasta",
+                "price": 7.46,
+                "quantity": 2,
+                "total": 14.92
+            },
+            {
+                "id": 1,
+                "name": "Pasta",
+                "price": 7.46,
+                "quantity": 2,
+                "total": 14.92
+            },
+            {
+                "id": 2,
+                "name": "Cheese",
+                "price": 1.85,
+                "quantity": 2,
+                "total": 3.7
+            }
+        ]
+    }
+]

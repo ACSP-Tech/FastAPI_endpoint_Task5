@@ -6,9 +6,9 @@ import os
 
 app = FastAPI()
 
-name = "placeholder"
-subject_scores = 0.0
-average = 0.0
+# name = "placeholder"
+# subject_scores = 0.0
+# average = 0.0
 
 #post request for adding students
 class Student(BaseModel):
@@ -44,6 +44,7 @@ def add_student(data:Student):
         old_json.append(student_out.model_dump())
         with open(file_path, "w") as file:
             json.dump(old_json, file)
+        return student_out
     except ValueError:
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
@@ -52,7 +53,6 @@ def add_student(data:Student):
     except Exception as e:
         # Catches all other unexpected errors and shows them
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=f"Unexpected error: {e}")
-    return student_out
     
 @app.get("/students/{name}")
 def filter_db(name:str):
@@ -76,7 +76,7 @@ def view_db():
         file_path = os.path.join(BASE_DIR, "student_result.json")
         with open(file_path, "r") as file:
             old_json = json.load(file)
-        #case - insensititive match
     except:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Student name not found/ does not exist")
     return old_json
+
