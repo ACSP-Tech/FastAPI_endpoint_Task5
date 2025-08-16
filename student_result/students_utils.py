@@ -1,5 +1,7 @@
+#importing the necessary requirement
 from fastapi import HTTPException, status
 
+#function to handling filepath exceptions and creation if necessary
 def check_filepath():
     import os
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -11,7 +13,8 @@ def check_filepath():
                 json.dump([], file)
     except:
        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="Error Creating Json file")
-    
+
+#function and logic to compute grade (A to F)   
 def compute_grade(grade_score: float) -> str:
     if grade_score >= 90:
         return "A"
